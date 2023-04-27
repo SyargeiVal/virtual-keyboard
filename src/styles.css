@@ -19,11 +19,11 @@ textarea {
     font-size: 20px;
 }
 p {
-    height: 50px;
+    text-align: center;
 }
-.keyboard {
+.keyboard, p {
     width: 963px;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 .key {
     width: 60px;

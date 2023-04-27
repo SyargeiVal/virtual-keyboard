@@ -10,6 +10,7 @@ let shift = false;
 function getKeyboard() {
   const keyBoard = document.createElement('div');
   const input = document.createElement('textarea');
+  const paragraph = document.createElement('p');
   const lng = checkLocalStorage();
   input.setAttribute('autofocus', 'autofocus');
   keyBoard.classList.add('keyboard');
@@ -17,6 +18,8 @@ function getKeyboard() {
     const button = new Button(el, lng);
     keyBoard.append(button.getButton());
   });
+  paragraph.textContent = 'The keyboard layout is switched with "ctrl" + "shift" keys.';
+  document.body.prepend(paragraph);
   document.body.prepend(keyBoard);
   document.body.prepend(input);
   document.addEventListener('keydown', keyDown);
