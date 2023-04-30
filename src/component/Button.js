@@ -44,20 +44,21 @@ class Button {
 
   print(e) {
     const field = document.querySelector('textarea');
-    const cursorPosition = field.selectionStart;
+    let cursorPosition = field.selectionStart;
     const capsLock = document.querySelector('.caps-lock');
     const shift = document.querySelectorAll('.shift');
     function insertChar(char) {
       const charCase = capsLock.classList.contains('caps-lock-active') ||
         shift[0].classList.contains('key-down') ||
         shift[1].classList.contains('key-down') ? char : char.toLowerCase();
-      const newInput = field.textContent.split('');
-      newInput.splice(field.selectionStart, 0, charCase);
-      field.textContent =  newInput.join('');
+      const newInput = field.value.split('');
+      newInput.splice(cursorPosition, 0, charCase);
+      field.value =  newInput.join('');
+      console.log(newInput.join(''));1
       if (char === "    ") {
         field.setSelectionRange(cursorPosition + 4, cursorPosition + 4);
       } else {
-        field.setSelectionRange(cursorPosition + 1, cursorPosition + 1);
+        field.setSelectionRange(cursorPosition + 1, cursorPosition +  1);
       }
       field.focus();
     }
@@ -71,18 +72,18 @@ class Button {
     if (e.target.value === "Tab") { insertChar("    "); }
     if (e.target.value === "Backspace") {
       if (cursorPosition > 0) {
-        const newInput = field.textContent.split('');
+        const newInput = field.value.split('');
         newInput.splice(field.selectionStart - 1, 1);
-        field.textContent = newInput.join('');
+        field.value = newInput.join('');
         field.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
         field.focus();
       }
     }
     if (e.target.value === "46") {
-      if (cursorPosition < field.textContent.length) {
-        const newInput = field.textContent.split('');
+      if (cursorPosition < field.value.length) {
+        const newInput = field.value.split('');
         newInput.splice(field.selectionStart, 1);
-        field.textContent = newInput.join('');
+        field.value = newInput.join('');
         field.setSelectionRange(cursorPosition , cursorPosition);
         field.focus();
       }
