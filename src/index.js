@@ -26,7 +26,6 @@ function getKeyboard() {
   document.addEventListener('keyup', keyUp);
 }
 
-
 function checkLocalStorage() {
   const storage = localStorage.getItem('virtual-keyboard');
   return storage ? storage : "en";
