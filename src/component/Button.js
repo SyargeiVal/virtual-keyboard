@@ -66,7 +66,6 @@ class Button {
       }
       field.focus();
     }
-
     if (!e.currentTarget.classList.contains('key-manage')
       || e.target.value === 'ArrowUp'
       || e.target.value === 'ArrowLeft'
@@ -84,7 +83,6 @@ class Button {
         field.focus();
       }
     }
-
     if (e.target.value === '46') {
       if (cursorPosition < field.value.length) {
         const newInput = field.value.split('');
@@ -94,7 +92,6 @@ class Button {
         field.focus();
       }
     }
-
     if (e.target.value === 'CapsLock') {
       if (e.target.classList.contains('caps-lock-light')) {
         e.target.classList.remove('caps-lock-light');
