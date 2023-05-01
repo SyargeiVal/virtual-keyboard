@@ -42,7 +42,7 @@ class Button {
         break;
       case '&nbsp;': button.classList.add('space');
         break;
-      default: // do nothing;
+      default:
     }
     return button;
   }
