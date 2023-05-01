@@ -7,6 +7,54 @@ const arrKeys = [['Backquote', '`', 'Ё'], ['Digit1', '1'], ['Digit2', '2'], ['D
   ['ControlLeft', 'Ctrl'], ['MetaLeft', 'Win'], ['AltLeft', 'Alt'], ['Space', '&nbsp;'], ['AltRight', 'Alt'], ['ControlRight', 'Ctrl'], ['ArrowLeft', '&#9668;'], ['ArrowDown', '&#9660;'], ['ArrowRight', '&#9658;']];
 let ctrl = false;
 let shift = false;
+
+function checkLocalStorage() {
+  const storage = localStorage.getItem('virtual-keyboard');
+  return storage || 'en';
+}
+
+function changeLanguage() {
+  const lng = checkLocalStorage();
+  let ind = null;
+  if (lng === 'en') {
+    ind = 2;
+    localStorage.setItem('virtual-keyboard', 'by');
+  } else {
+    ind = 1;
+    localStorage.setItem('virtual-keyboard', 'en');
+  }
+
+  arrKeys.forEach((el) => {
+    if (el[2] !== undefined) {
+      const key = document.querySelector(`[value=${el[0]}]`);
+      key.textContent = el[ind];
+    }
+  });
+}
+
+function keyDown(e) {
+  document.querySelectorAll('.key').forEach((el) => {
+    if (el.value === e.code || el.value === e.keyCode) {
+      el.classList.add('key-down');
+    }
+  });
+  if (e.code === 'ControlLeft' || e.code === 'ControlRight') ctrl = true;
+  if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') shift = true;
+}
+
+function keyUp(e) {
+  if (ctrl && shift) {
+    changeLanguage();
+    ctrl = false;
+    shift = false;
+  }
+  document.querySelectorAll('.key').forEach((el) => {
+    if (el.value === e.code || el.value === e.keyCode) {
+      el.classList.remove('key-down');
+    }
+  });
+}
+
 function getKeyboard() {
   const keyBoard = document.createElement('div');
   const input = document.createElement('textarea');
@@ -24,52 +72,6 @@ function getKeyboard() {
   document.body.prepend(input);
   document.addEventListener('keydown', keyDown);
   document.addEventListener('keyup', keyUp);
-}
-
-function checkLocalStorage() {
-  const storage = localStorage.getItem('virtual-keyboard');
-  return storage ? storage : "en";
-}
-
-function changeLanguage() {
-  const lng = checkLocalStorage();
-  let ind = null;
-  if (lng === 'en') {
-    ind = 2;
-    localStorage.setItem('virtual-keyboard', 'by');
-  } else {
-    ind = 1;
-    localStorage.setItem('virtual-keyboard', 'en');
-  }
-  for (let elKey of arrKeys) {
-    if (elKey[2] == undefined) continue;
-    let key = document.querySelector(`[value=${elKey[0]}]`);
-    key.textContent = elKey[ind];
-  }
-
-}
-
-function keyDown(e) {
-  document.querySelectorAll('.key').forEach(el => {
-      if(el.value == e.code || el.value == e.keyCode) {
-          el.classList.add('key-down');
-      }
-  });
-  if (e.code == 'ControlLeft' || e.code == 'ControlRight') ctrl = true;
-  if (e.code == 'ShiftLeft' || e.code == 'ShiftRight') shift = true;
-}
-
-function keyUp(e) {
-  if (ctrl && shift) {
-    changeLanguage();
-    ctrl = false;
-    shift = false;
-  }
-  document.querySelectorAll('.key').forEach(el => {
-      if(el.value == e.code || el.value == e.keyCode) {
-        el.classList.remove('key-down');
-      }
-  });
 }
 
 getKeyboard();
