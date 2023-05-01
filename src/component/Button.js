@@ -54,7 +54,6 @@ class Button {
       const newInput = field.value.split('');
       newInput.splice(cursorPosition, 0, charCase);
       field.value =  newInput.join('');
-      console.log(newInput.join(''));1
       if (char === "    ") {
         field.setSelectionRange(cursorPosition + 4, cursorPosition + 4);
       } else {
