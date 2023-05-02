@@ -85,7 +85,7 @@ class Button {
       }
     }
 
-    if (e.target.value === '46') {
+    if (e.target.value === 'Delete') {
       if (cursorPosition < field.value.length) {
         const newInput = field.value.split('');
         newInput.splice(field.selectionStart, 1);

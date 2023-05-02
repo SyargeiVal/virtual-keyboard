@@ -1,7 +1,7 @@
 import Button from './component/Button.js';
 
 const arrKeys = [['Backquote', '`', 'Ё'], ['Digit1', '1'], ['Digit2', '2'], ['Digit3', '3'], ['Digit4', '4'], ['Digit5', '5'], ['Digit6', '6'], ['Digit7', '7'], ['Digit8', '8'], ['Digit9', '9'], ['Digit0', '0'], ['Minus', '-'], ['Equal', '='], ['Backspace', 'Backspace'],
-  ['Tab', 'Tab'], ['KeyQ', 'Q', 'Й'], ['KeyW', 'W', 'Ц'], ['KeyE', 'E', 'У'], ['KeyR', 'R', 'К'], ['KeyT', 'T', 'Е'], ['KeyY', 'Y', 'Н'], ['KeyU', 'U', 'Г'], ['KeyI', 'I', 'Ш'], ['KeyO', 'O', 'Ў'], ['KeyP', 'P', 'З'], ['BracketLeft', '[', 'Х'], ['BracketRight', ']', "'"], ['Backslash', '\\'], [46, 'DEL'],
+  ['Tab', 'Tab'], ['KeyQ', 'Q', 'Й'], ['KeyW', 'W', 'Ц'], ['KeyE', 'E', 'У'], ['KeyR', 'R', 'К'], ['KeyT', 'T', 'Е'], ['KeyY', 'Y', 'Н'], ['KeyU', 'U', 'Г'], ['KeyI', 'I', 'Ш'], ['KeyO', 'O', 'Ў'], ['KeyP', 'P', 'З'], ['BracketLeft', '[', 'Х'], ['BracketRight', ']', "'"], ['Backslash', '\\'], ['Delete', 'DEL'],
   ['CapsLock', 'Caps Lock'], ['KeyA', 'A', 'Ф'], ['KeyS', 'S', 'Ы'], ['KeyD', 'D', 'В'], ['KeyF', 'F', 'А'], ['KeyG', 'G', 'П'], ['KeyH', 'H', 'Р'], ['KeyJ', 'J', 'О'], ['KeyK', 'K', 'Л'], ['KeyL', 'L', 'Д'], ['Semicolon', ';', 'Ж'], ['Quote', "'", 'Э'], ['Enter', 'ENTER'],
   ['ShiftLeft', 'Shift'], ['KeyZ', 'Z', 'Я'], ['KeyX', 'X', 'Ч'], ['KeyC', 'C', 'С'], ['KeyV', 'V', 'М'], ['KeyB', 'B', 'І'], ['KeyN', 'N', 'Т'], ['KeyM', 'M', 'Ь'], ['Comma', ',', 'Б'], ['Period', '.', 'Ю'], ['Slash', '/'], ['ShiftRight', 'Shift'], ['ArrowUp', '&#9650;'],
   ['ControlLeft', 'Ctrl'], ['MetaLeft', 'Win'], ['AltLeft', 'Alt'], ['Space', '&nbsp;'], ['AltRight', 'Alt'], ['ControlRight', 'Ctrl'], ['ArrowLeft', '&#9668;'], ['ArrowDown', '&#9660;'], ['ArrowRight', '&#9658;']];
